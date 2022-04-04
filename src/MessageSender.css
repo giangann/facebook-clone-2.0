@@ -1,0 +1,62 @@
+.feeds__messageSender {
+  background-color: white;
+  height: fit-content;
+  width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: 0 3px 5px 0 #d6d6d6;
+  border-radius: 10px;
+}
+
+.sender__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px #e4e6eb;
+  padding: 16px;
+}
+
+.sender__bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 16px;
+}
+
+.sender__input {
+  width: 90%;
+  height: 40px;
+}
+
+.sender__input input:hover {
+  cursor: pointer;
+  background-color: #cfd1d5;
+  border-radius: 20px;
+}
+
+.sender__input input {
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+
+.sender__input > * {
+  width: 100%;
+  height: 100%;
+}
+
+.sender__icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 8px;
+  flex-grow: 1;
+}
+
+.sender__icon:hover {
+  background-color: #eff2f5;
+  border-radius: 20px;
+  cursor: pointer;
+}

@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+/* divide width for each part 1:2:1 */
+
+.app__body {
+  display: flex;
+  background-color: #f0f2f5;
+  padding-top: 16px;
+}
+.app__sidebar {
+  flex-basis: 25%;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+
+.app__content {
+  flex-basis: 50%;
+}
+.app__widget {
+  flex-basis: 25%;
+}

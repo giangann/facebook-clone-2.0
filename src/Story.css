@@ -1,0 +1,10 @@
+.content__story{
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.content__story *{
+    max-width: 100%;
+}

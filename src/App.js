@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import HomeIcon from '@mui/icons-material/Home';
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Content from './Content';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="app__header">
+
+      <Header/>
+      </div>
+      <div className="app__body">
+        <div className="app__sidebar">
+          <Sidebar/>
+        </div>
+        <div className="app__content">
+          <Content/>
+        </div>
+        <div className="app__widget">
+
+        </div>
+      </div>
+
     </div>
+
   );
 }
 
