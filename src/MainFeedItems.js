@@ -21,8 +21,15 @@ function MainFeedItems({
         </div>
         <div>
           <span className="feedItems__userName">{userName}</span>
-          <div className="feedItems__timeStamp">
-            {feedItemsStatistic.timeStamp}d
+          <div
+            className="feedItems__timeStamp"
+            style={{
+              fontFamily: "Roboto",
+              fontWeight: "light",
+              fontSize: "13px",
+            }}
+          >
+            {feedItemsStatistic.timeStamp} d
           </div>
         </div>
       </div>

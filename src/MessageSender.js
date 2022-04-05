@@ -1,6 +1,7 @@
 import React from "react";
 import "./MessageSender.css";
 import "./SidebarRow.css";
+
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import CollectionsBookmarkSharpIcon from "@mui/icons-material/CollectionsBookmarkSharp";
 import SentimentVerySatisfiedSharpIcon from "@mui/icons-material/SentimentVerySatisfiedSharp";
@@ -9,11 +10,10 @@ import VideoCameraFrontSharpIcon from "@mui/icons-material/VideoCameraFrontSharp
 function MessageSender() {
   const handleCreatePost = () => {
     console.log("create post");
-    var element = document.getElementsByClassName("feeds__messageSender")[0];
-    console.log(element);
+    document.getElementsByClassName("feeds__createPost--wrapper")[0].style.display = 'block';
   };
 
-  const handleClose = () => {};
+
   return (
     <div>
       <div className="feeds__messageSender">
@@ -44,11 +44,7 @@ function MessageSender() {
           </div>
         </div>
       </div>
-      <div className="feeds__createPost">
-        <h3>Create post</h3>
-        <input type="text" placeholder="What's on your mind, Ann?"/>
-
-      </div>
+      
     </div>
   );
 }

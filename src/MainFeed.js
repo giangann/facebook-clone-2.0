@@ -14,8 +14,8 @@ function MainFeed() {
   ];
 
   const userStatus = [
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!",
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!",
+    "Dù có chơi dao xuất sắc như thế nào, nếu lạm dụng thì sẽ có ngày đứt tay. Anh Trịnh Văn Quyết FLC là tấm gương không thể sáng hơn cho anh Đỗ Anh Dũng, Tân Hoàng Minh. Chỉ tiếc là đã quá muộn để anh Dũng nhà ta rút lại con dao đã vung ra- vốn là vũ khí lợi hại của mình trong các phi vụ trước. Viết tâm thư cho ”người đốt lò” không giúp ai đó tránh được vết đứt tay. Nó chỉ khiến mọi việc được thúc đẩy nhanh hơn 1 chút, vì người ta chưa kịp khảo mà anh đã tự xưng!… See more ",
+    "Intel Developer Zone Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!",
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!",
   ];
 

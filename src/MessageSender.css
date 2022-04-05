@@ -1,3 +1,6 @@
+
+
+
 .feeds__messageSender {
   background-color: white;
   height: fit-content;
@@ -59,9 +62,4 @@
   background-color: #eff2f5;
   border-radius: 20px;
   cursor: pointer;
-}
-
-/* form to create post */
-.feeds__createPost{
-  /* display: none; */
 }
