@@ -23,9 +23,14 @@
   transform: translate(-50%, -50%);
 }
 
-.feeds__createPost h3 {
-  margin: 1em auto;
+.feeds__createPost h3:last-child {
+  margin: 0px auto;
   width: fit-content;
+}
+
+.feeds__createPost h3:not(:last-child) {
+  width: fit-content;
+  margin: 1em auto;
 }
 
 .createPost__closeBtn {
@@ -40,4 +45,15 @@
 .createPost__closeBtn:hover {
   cursor: pointer;
   background-color: #f3f2f3;
+}
+
+.createPost__submit:hover {
+  cursor: pointer;
+}
+
+.createPost__submit {
+  background-color: #1a6ed8;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0.5em 0px;
 }

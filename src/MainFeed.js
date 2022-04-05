@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import CreatePost from "./CreatePost";
 import MainFeedItems from "./MainFeedItems";
 
 function MainFeed() {
@@ -66,15 +67,24 @@ function MainFeed() {
     return mergeArr;
   };
 
-  const feedItemsData = merge(
+  const feedItemsData_temp = merge(
     feedImage,
     userAvatar,
     userName,
     userStatus,
     feedItemsStatistic
   );
+
+  const [feedItemsData, setFeedItemsData] = useState(feedItemsData_temp);
+  const handleAddNewFeed = (newFeed) => {
+    setFeedItemsData([...feedItemsData, newFeed]);
+  };
+
+  console.log(feedItemsData);
   return (
     <div>
+      <CreatePost handleAddNewFeed = {handleAddNewFeed} />
+
       {feedItemsData.map((component, index) => (
         <MainFeedItems
           key={index}
@@ -83,6 +93,7 @@ function MainFeed() {
           userName={component.userName}
           userStatus={component.userStatus}
           feedItemsStatistic={component.feedItemsStatistic}
+          handleAddNewFeed={handleAddNewFeed}
         />
       ))}
     </div>
