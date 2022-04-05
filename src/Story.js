@@ -39,7 +39,6 @@ function Story() {
 
   const storyItemData = merge(storyImage, userAvatar, userName);
 
-  console.log(storyItemData);
   return (
     <div className="content__story">
       {storyItemData.map((component, index) => (

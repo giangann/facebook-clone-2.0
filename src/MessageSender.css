@@ -60,3 +60,8 @@
   border-radius: 20px;
   cursor: pointer;
 }
+
+/* form to create post */
+.feeds__createPost{
+  /* display: none; */
+}
