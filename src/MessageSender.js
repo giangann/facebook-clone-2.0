@@ -9,7 +9,6 @@ import VideoCameraFrontSharpIcon from "@mui/icons-material/VideoCameraFrontSharp
 
 function MessageSender() {
   const handleCreatePost = () => {
-    console.log("create post");
     document.getElementsByClassName("feeds__createPost--wrapper")[0].style.display = 'block';
   };
 

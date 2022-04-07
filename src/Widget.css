@@ -1,0 +1,12 @@
+.app__widget{
+    height: 88vh;
+    overflow: auto;
+    position: sticky;
+    top: 85px;
+    right: 0px;
+}
+
+.app__widget>div{
+    display: flex;
+    justify-content: flex-end;
+}

@@ -33,7 +33,7 @@ function MainFeed() {
       numOfComment: 29,
       numOfShare: 8,
     },
-    {
+      {
       timeStamp: 1,
       numOfInteract: 38,
       numOfComment: 29,
@@ -80,7 +80,6 @@ function MainFeed() {
     setFeedItemsData([...feedItemsData, newFeed]);
   };
 
-  console.log(feedItemsData);
   return (
     <div>
       <CreatePost handleAddNewFeed = {handleAddNewFeed} />
