@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CreatePost.css";
 import "./MainFeedItems.css";
 import { Input } from "antd";
@@ -9,6 +9,12 @@ import firebase from "firebase";
 
 function CreatePost({ handleAddNewFeed }) {
   const [{ user }, setUser] = useStateValue();
+  const [input,setInput] = useState("")
+
+  const handleOnChange = (e)=>{
+    e.preventDefault()
+    setInput(e.target.value)
+  }
 
   const { TextArea } = Input;
 
@@ -23,7 +29,7 @@ function CreatePost({ handleAddNewFeed }) {
       feedImage: "https://scontent.fhan7-1.fna.fbcdn.net/v/t39.30808-6/277570817_538392347645804_872732488301493782_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=xsMcYVcxHp0AX-sGhJA&_nc_ht=scontent.fhan7-1.fna&oh=00_AT9smRF2omnG0eJbZ9mn2rb8XutXiU0L4zvpPO30fDEnkg&oe=62540B88",
       userAvatar:user.photoURL,
       userName: user.displayName,
-      userStatus: document.getElementsByTagName("TextArea")[0].value,
+      userStatus: input,
       feedItemsStatistic: {
         timeStamp: 1,
         numOfInteract: 0,
@@ -31,6 +37,7 @@ function CreatePost({ handleAddNewFeed }) {
         numOfShare: 0,
       },
     });
+    setInput("")
 
   };
 
@@ -51,7 +58,9 @@ function CreatePost({ handleAddNewFeed }) {
         <TextArea
           style={{ width: "100%" }}
           rows={4}
+          onChange = {handleOnChange}
           placeholder={`What's on your mind, ${user.displayName}?`}
+          value = {input}
         />
         <div className="createPost__image">
           <input
