@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Segoe UI VN";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Segoe UI VN"), url("./fonts/SVN-Segoe UI.ttf") format("ttf");
+}
+
+body {
+  height: 100vh;
+}
+
+.loginPage {
+  background-color: #eff1f3;
+  height: 100vh;
+}
+
+.loginPage .loginPage__logo{
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 10vh;
+    padding-top: 10vh;
+}
+.loginPage__loginBtn {
+  /* padding: 40px */
+  margin: 0 auto;
+  width: fit-content;
+  z-index: 1000;
+}
+
+.loginPage button {
+  background-color: #2c77f2;
+  color: white;
+  border: none;
+  box-shadow: 0 3px 5px 0 #d6d6d6;
+  border-radius: 5px;
+  font-size: xx-large;
+  padding: 20px;
+  /* font-family: "Roboto", sans-serif; */
+}
+
+button:hover{
+    cursor: pointer;
+}

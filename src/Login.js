@@ -5,7 +5,7 @@ import { useStateValue } from "./StateProvider";
 import { actionTypes } from "./reducer";
 
 function Login() {
-  const [state,dispatch] = useStateValue()
+  const [state, dispatch] = useStateValue();
 
   const signIn = () => {
     auth
@@ -13,15 +13,22 @@ function Login() {
       .then((result) => {
         dispatch({
           type: actionTypes.SET_USER,
-          user: result.user
-        })
+          user: result.user,
+        });
         // console.log(result.user.photoURL)
       })
       .catch((err) => console.log(err.message));
   };
   return (
-    <div>
-      <input type="submit" name="login" id="login" onClick={signIn}/>
+    <div className="loginPage">
+      <div className="loginPage__logo">
+        <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="" />
+      </div>
+      <div className="loginPage__loginBtn">
+        <button onClick={signIn}>Login with Gmail</button>
+      </div>
+
+      {/* <input type="submit" name="login" id="login" onClick={signIn}/> */}
     </div>
   );
 }
