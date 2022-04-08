@@ -76,6 +76,14 @@
 }
 .header__right .header__info {
   align-items: center;
+  flex-basis: 20%;
+}
+
+.header__info img{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: solid 1px black;
 }
 .header__option .header__options {
   margin-left: 10px;

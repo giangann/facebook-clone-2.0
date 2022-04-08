@@ -9,8 +9,8 @@ import Widget from "./Widget";
 import { useEffect } from "react";
 
 function App() {
-  const user = useStateValue()[0].user
-  console.log("log in app.js",user)
+
+  const [{user}, setUser] = useStateValue()
 
   return (
     <div>

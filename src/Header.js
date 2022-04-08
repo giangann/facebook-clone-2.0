@@ -6,14 +6,22 @@ import FlagIcon from "@mui/icons-material/Flag";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
-import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import MessageIcon from "@mui/icons-material/Message";
 import AppsIcon from "@mui/icons-material/Apps";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
+import { useStateValue } from "./StateProvider";
+import "./App.css";
 
 function Header() {
+  const [{ user }, setUser] = useStateValue();
+
+  function getFirstName(fullName) {
+    var firstName = fullName.split(" ").slice(1, 2);
+    return firstName;
+  }
+
   function handleResponsive() {
     var x = document.getElementsByClassName("header__mid")[0];
     if (x.className === "header__mid") {
@@ -65,8 +73,10 @@ function Header() {
 
       <div className="header__right">
         <div className="header__info">
-          <AccountCircleTwoToneIcon fontSize="large" />
-          <h4>Ann</h4>
+          <img className="user__avatar" src={user.photoURL} alt="" />
+          <h4>
+            {getFirstName(user.displayName)} 
+          </h4>
         </div>
         <div className="header__option">
           <div className="header__options">

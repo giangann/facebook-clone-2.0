@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SidebarRow from "./SidebarRow";
 import './Sidebar.css'
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -10,11 +10,13 @@ import StoreSharpIcon from "@mui/icons-material/StoreSharp";
 import GroupWorkSharpIcon from "@mui/icons-material/GroupWorkSharp";
 import LiveTvSharpIcon from "@mui/icons-material/LiveTvSharp";
 import PeopleSharpIcon from "@mui/icons-material/PeopleSharp";
-import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
+import { useStateValue } from "./StateProvider";
+import './App.css'
 
 function Sidebar() {
+  const [{user}, setUser] = useStateValue()
   const title = [
-    "Giang Ann",
+    `${user.displayName}`,
     "Friends",
     "Live Video",
     "Group",
@@ -26,7 +28,7 @@ function Sidebar() {
     "See more",
   ];
   const icons = [
-    <AccountCircleTwoToneIcon fontSize="medium" />,
+    <img className="user__avatar" src= {user.photoURL} alt="" />,
     <FlagIcon fontSize="medium" />,
     <BookmarkIcon fontSize="medium" />,
     <AccessTimeIcon fontSize="medium" />,

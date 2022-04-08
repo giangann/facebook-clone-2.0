@@ -65,3 +65,10 @@
   margin-bottom: 1px;
   background-color: white;
 }
+
+.user__avatar{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: solid 1px black;
+}
