@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CreatePost from "./CreatePost";
+import db from "./firebaseConfig";
 import MainFeedItems from "./MainFeedItems";
 
 function MainFeed() {
@@ -33,7 +34,7 @@ function MainFeed() {
       numOfComment: 29,
       numOfShare: 8,
     },
-      {
+    {
       timeStamp: 1,
       numOfInteract: 38,
       numOfComment: 29,
@@ -75,23 +76,30 @@ function MainFeed() {
     feedItemsStatistic
   );
 
-  const [feedItemsData, setFeedItemsData] = useState(feedItemsData_temp);
+  const [feedItemsData, setFeedItemsData] = useState([]);
+
+  useEffect(() => {
+    db.collection("feed").onSnapshot((snapshot) =>
+      setFeedItemsData(snapshot.docs.map((doc) =>({id: doc.id, data: doc.data()})))
+    );
+  }, []);
+
   const handleAddNewFeed = (newFeed) => {
     setFeedItemsData([...feedItemsData, newFeed]);
   };
 
   return (
     <div>
-      <CreatePost handleAddNewFeed = {handleAddNewFeed} />
+      <CreatePost handleAddNewFeed={handleAddNewFeed} />
 
       {feedItemsData.map((component, index) => (
         <MainFeedItems
           key={index}
-          feedImage={component.feedImage}
-          userAvatar={component.userAvatar}
-          userName={component.userName}
-          userStatus={component.userStatus}
-          feedItemsStatistic={component.feedItemsStatistic}
+          feedImage={component.data.feedImage}
+          userAvatar={component.data.userAvatar}
+          userName={component.data.userName}
+          userStatus={component.data.userStatus}
+          feedItemsStatistic={component.data.feedItemsStatistic}
           handleAddNewFeed={handleAddNewFeed}
         />
       ))}

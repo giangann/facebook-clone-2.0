@@ -6,11 +6,14 @@ import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import CollectionsBookmarkSharpIcon from "@mui/icons-material/CollectionsBookmarkSharp";
 import SentimentVerySatisfiedSharpIcon from "@mui/icons-material/SentimentVerySatisfiedSharp";
 import VideoCameraFrontSharpIcon from "@mui/icons-material/VideoCameraFrontSharp";
+import { useStateValue } from "./StateProvider";
 
 function MessageSender() {
   const handleCreatePost = () => {
     document.getElementsByClassName("feeds__createPost--wrapper")[0].style.display = 'block';
   };
+
+  const [{user}, setUser] = useStateValue()
 
 
   return (
@@ -24,8 +27,8 @@ function MessageSender() {
             <input
               onClick={() => handleCreatePost()}
               type="text"
-              placeholder="What's on your mind, Ann?"
-            />
+              placeholder={`What's on your mind, ${user.displayName}?`}
+              />
           </div>
         </div>
         <div className="sender__bottom">
