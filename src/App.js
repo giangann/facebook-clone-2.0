@@ -11,7 +11,6 @@ import { useEffect } from "react";
 function App() {
 
   const [{user}, setUser] = useStateValue()
-  console.log(user)
   return (
     <div>
       {!user ? (

@@ -13,6 +13,7 @@ function MainFeedItems({
   userStatus,
   feedItemsStatistic,
 }) {
+  
   return (
     <div className="mainFeed__items">
       <div className="feedItems__top">
@@ -21,15 +22,8 @@ function MainFeedItems({
         </div>
         <div>
           <span className="feedItems__userName">{userName}</span>
-          <div
-            className="feedItems__timeStamp"
-            style={{
-              fontFamily: "Roboto",
-              fontWeight: "light",
-              fontSize: "13px",
-            }}
-          >
-            {feedItemsStatistic.timeStamp} d
+          <div className="feedItems__timeStamp">
+            {feedItemsStatistic.timeStamp.toDate().toUTCString()}
           </div>
         </div>
       </div>

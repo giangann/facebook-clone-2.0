@@ -15,7 +15,6 @@ function Login() {
           type: actionTypes.SET_USER,
           user: result.user,
         });
-        // console.log(result.user.photoURL)
       })
       .catch((err) => console.log(err.message));
   };

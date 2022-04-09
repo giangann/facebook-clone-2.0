@@ -31,6 +31,11 @@
   padding: 16px 16px 8px 16px;
 }
 
+.feedItems__top div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .feedItems__userAvatar {
   width: 40px;
   height: 40px;
@@ -40,7 +45,7 @@
   cursor: pointer;
 }
 
-.feedItems__userName{
+.feedItems__userName {
   font-weight: 400;
   font-size: larger;
 }
@@ -54,6 +59,12 @@
   border: solid 1px #e7e5e7;
 }
 
+.feedItems__timeStamp {
+  font-family: "Roboto", sans-serif;
+  font-weight: "light";
+  font-size: 13px;
+  opacity: 0.4;
+}
 /* css for middle: status + image */
 .feedItems__userStatus {
   margin-bottom: 10px;

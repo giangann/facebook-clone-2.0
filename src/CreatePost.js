@@ -6,14 +6,18 @@ import HighlightOffSharpIcon from "@mui/icons-material/HighlightOffSharp";
 import { useStateValue } from "./StateProvider";
 import db from "./firebaseConfig";
 import CircularProgress from "@mui/material/CircularProgress";
-
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import MicExternalOnIcon from "@mui/icons-material/MicExternalOn";
+import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 import firebase from "firebase";
 
 function CreatePost({ handleAddNewFeed }) {
   const [{ user }, setUser] = useStateValue();
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  
   const handleOnChange = (e) => {
     e.preventDefault();
     setInput(e.target.value);
@@ -36,7 +40,7 @@ function CreatePost({ handleAddNewFeed }) {
       userName: user.displayName,
       userStatus: input,
       feedItemsStatistic: {
-        timeStamp: 1,
+        timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
         numOfInteract: 0,
         numOfComment: 0,
         numOfShare: 0,
@@ -77,21 +81,38 @@ function CreatePost({ handleAddNewFeed }) {
             name="image"
             id="file"
             onChange={(e) => loadImg(e)}
-            a
+            display="none"
           />
+          <div className="createPost__addToPost">
+            <p>
+              <strong>Add to post</strong>
+            </p>
+            <div className="createPost__icon">
+              <label for="file">
+                <AddPhotoAlternateIcon fontSize="medium" />
+              </label>
+              <GroupAddIcon fontSize="medium" />
+              <EmojiEmotionsIcon fontSize="medium" />
+              <AddLocationAltIcon fontSize="medium" />
+              <MicExternalOnIcon fontSize="medium" />
+            </div>
+          </div>
+
           <img src="" alt="" id="image" />
         </div>
 
         <div className="createPost__submit" onClick={() => handlePost()}>
           <h3 style={{ color: "white" }}>Post</h3>
         </div>
-        {isLoading?<>
-          <div className="createPost__loading opacity"></div>
-          <div className="createPost__loading">
-            <CircularProgress />
-            <p>...Loading</p>
-          </div>
-        </>:null}
+        {isLoading ? (
+          <>
+            <div className="createPost__loading opacity"></div>
+            <div className="createPost__loading">
+              <CircularProgress />
+              <p>...Loading</p>
+            </div>
+          </>
+        ) : null}
       </div>
     </div>
   );
