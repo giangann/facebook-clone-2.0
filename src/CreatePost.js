@@ -88,7 +88,7 @@ function CreatePost({ handleAddNewFeed }) {
               <strong>Add to post</strong>
             </p>
             <div className="createPost__icon">
-              <label for="file">
+              <label >
                 <AddPhotoAlternateIcon fontSize="medium" />
               </label>
               <GroupAddIcon fontSize="medium" />

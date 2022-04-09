@@ -6,35 +6,27 @@ import _ from "lodash";
 
 function MainFeed() {
   const [feedItemsData, setFeedItemsData] = useState([]);
-  const [reRender, setReRender] = useState(1)
+  const [reRender, setReRender] = useState(1);
 
   useEffect(() => {
-    db.collection("feed").onSnapshot( (snapshot) =>
+    db.collection("feed").onSnapshot((snapshot) =>
       setFeedItemsData(
         snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
       )
     );
-    sortFeedByDate(feedItemsData)
-  }, [reRender]);
+  }, []);
 
-  const sortFeedByDate = () => {
-    const sortFeedList = _.orderBy(
-      feedItemsData,
-      component =>component.data.feedItemsStatistic.timeStamp,
-      ["asc"]
-    );
-    console.log("sortFeedList",sortFeedList)
-    setFeedItemsData(sortFeedList);
-  };
-
-  // sortFeedByDate();
-  console.log("feedItemsData",feedItemsData)
+  const sortFeedList = _.orderBy(
+    feedItemsData,
+    (component) => component.data.feedItemsStatistic.timeStamp,
+    ["desc"]
+  );
 
   return (
     <div>
       <CreatePost />
 
-      {feedItemsData.map((component, index) => (
+      {sortFeedList.map((component, index) => (
         <MainFeedItems
           key={index}
           feedImage={component.data.feedImage}
