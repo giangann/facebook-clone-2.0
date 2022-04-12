@@ -40,7 +40,7 @@ function MessageSender() {
             <CollectionsBookmarkSharpIcon fontSize="large" />
             <span className="sidebar__title">Photo/video</span>
           </div>
-          <div className="sender__icon ">
+          <div className="sender__icon " onClick={() => handleCreatePost()}>
             <SentimentVerySatisfiedSharpIcon fontSize="large" />
             <span className="sidebar__title">Feeling/Activity</span>
           </div>

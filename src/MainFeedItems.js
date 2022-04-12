@@ -13,7 +13,6 @@ function MainFeedItems({
   userStatus,
   feedItemsStatistic,
 }) {
-  
   return (
     <div className="mainFeed__items">
       <div className="feedItems__top">
@@ -23,7 +22,7 @@ function MainFeedItems({
         <div>
           <span className="feedItems__userName">{userName}</span>
           <div className="feedItems__timeStamp">
-            {feedItemsStatistic.timeStamp.toDate().toUTCString()}
+            {new Date(feedItemsStatistic.timeStamp?.toDate()).toUTCString()}
           </div>
         </div>
       </div>
