@@ -65,6 +65,8 @@ function CreatePost() {
   function loadImg(event) {
     var image = document.getElementById("image");
     image.src = URL.createObjectURL(event.target.files[0]);
+
+    console.log(image.src)
   }
 
   return (
@@ -97,7 +99,7 @@ function CreatePost() {
               <strong>Add to post</strong>
             </p>
             <div className="createPost__icon">
-              <label>
+              <label for = "file">
                 <AddPhotoAlternateIcon fontSize="medium" />
               </label>
               <GroupAddIcon fontSize="medium" />
