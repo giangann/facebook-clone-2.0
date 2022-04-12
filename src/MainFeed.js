@@ -13,12 +13,15 @@ function MainFeed() {
     db.collection("feed").onSnapshot((snapshot) =>
       setFeedItemsData(
         snapshot.docs.map((doc) =>
+          // check timeStamp field value is null
           doc.data().feedItemsStatistic.timeStamp
             ? {
+                // if not null, set data = doc.data
                 id: doc.id,
                 data: doc.data(),
               }
             : {
+                // if null, change timeStamp with return value of .now() method
                 id: doc.id,
                 data: {
                   feedImage:
@@ -46,15 +49,9 @@ function MainFeed() {
   );
   console.log(sortFeedList);
 
-  // rerender after add collection to avoid null
-  const handleReRender = () => {
-    setReRender(reRender + 1);
-    console.log("ReRender called");
-  };
-
   return (
     <div>
-      <CreatePost handleReRender={handleReRender} />
+      <CreatePost />
 
       {sortFeedList.map((component, index) => (
         <MainFeedItems
