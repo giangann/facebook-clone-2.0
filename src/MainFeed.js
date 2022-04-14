@@ -4,6 +4,7 @@ import db from "./firebaseConfig";
 import MainFeedItems from "./MainFeedItems";
 import _ from "lodash";
 import firebase from "firebase";
+import ProcessImage from "./ProcessImage";
 
 function MainFeed() {
   const [feedItemsData, setFeedItemsData] = useState([]);
@@ -15,11 +16,13 @@ function MainFeed() {
         snapshot.docs.map((doc) =>
           // check timeStamp field value is null
           doc.data().feedItemsStatistic.timeStamp
-            ? {
+            ? 
+            {
                 // if not null, set data = doc.data
                 id: doc.id,
                 data: doc.data(),
               }
+              
             : {
                 // if null, change timeStamp with return value of .now() method
                 id: doc.id,
@@ -51,6 +54,7 @@ function MainFeed() {
   return (
     <div>
       <CreatePost />
+      <ProcessImage/>
 
       {sortFeedList.map((component, index) => (
         <MainFeedItems
