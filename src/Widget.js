@@ -13,7 +13,7 @@ function Widget() {
       {/* First Area: Sponsored */}
       <div className="widget__sponsored">
         <div className="widget__title">
-          <h4>Sponsored</h4>
+          <p>Sponsored</p>
         </div>
         <div className="widget__item--sponsored">
           <div className="widget__image">
@@ -44,7 +44,7 @@ function Widget() {
       {/* Second Area: Contact */}
       <div className="widget__contact">
         <div className="widget__title">
-          <h4>Contacts</h4>
+          <p>Contacts</p>
         </div>
         <div className="widget__item">
           <div className="widget__image">
@@ -105,7 +105,7 @@ function Widget() {
       </div>
       <div className="widget__groupConservations">
         <div className="widget__title">
-          <h4>Group conversations</h4>
+          <p>Group conversations</p>
         </div>
         <div className="widget__item">
           <div className="widget__image">

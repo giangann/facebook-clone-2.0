@@ -1,3 +1,10 @@
+/* Css for Widget */
+
+p {
+  margin: 0px;
+}
+
+/* full height and sticky, allow scroll inside widget content */
 .app__widget {
   height: 88vh;
   overflow: auto;
@@ -8,19 +15,38 @@
   justify-content: flex-end;
 }
 
-.widget > * {
-  width: 80%;
+/* make widget have space */
+.widget {
+  width: 85%;
+}
 
+/* css for all title */
+.widget__title {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  padding: 0 8px 8px;
+}
+
+.widget > * {
+  width: fit-content;
   display: flex;
   flex-direction: column;
 }
 
+/* css for image of Sponsored area */
+.widget__sponsored,
+.widget__contact,
+.widget__groupConservations {
+  padding-bottom: 8px;
+  border-bottom: solid 1px #ced0d4;
+}
 .widget__item--sponsored {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 8px;
 }
 .widget__item--sponsored img {
-  width: 90%;
+  width: 100%;
   height: auto;
   border-radius: 5px;
 }
@@ -30,21 +56,46 @@
   width: 40%;
 }
 
+/* css for content of Sponsored area */
+
 .widget__item--sponsored .widget__content {
   width: 55%;
 }
 
 .widget__item--sponsored p:first-child {
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
+.widget__item--sponsored p:last-child {
+  font-weight: 400;
+  font-size: 13px;
+}
+
+/* css for Contact area */
+.widget__contact {
+  padding-bottom: 8px;
+  border-bottom: solid 1px #ced0d4;
+}
 .widget__item {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
 }
 
-.widget__item img{
+.widget__item p{
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.widget__item img {
   width: 28px;
   height: 28px;
   border-radius: 50%;
+  margin-right: 8px;
+}
+
+.widget__contact .widget__title,.widget__groupConservations .widget__title{
+  padding-top: 20px;
 }
