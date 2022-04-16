@@ -27,7 +27,7 @@ function App() {
               <Content />
             </div>
             <div className="app__widget">
-              {/* <Widget /> */}
+              <Widget />
             </div>
           </div>
         </>
