@@ -22,7 +22,7 @@
 .widget__item--sponsored img {
   width: 90%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .widget__item--sponsored .widget__image {
@@ -40,4 +40,11 @@
 
 .widget__item {
   display: flex;
+  justify-content: space-evenly;
+}
+
+.widget__item img{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
 }

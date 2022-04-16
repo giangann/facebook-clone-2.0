@@ -1,4 +1,6 @@
 .sidebar__wrap {
+  position: sticky;
+  top: 79px;
   display: flex;
   flex-direction: column;
   width: 90%;
