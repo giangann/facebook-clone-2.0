@@ -1,0 +1,2 @@
+15.4.2022 3:32PM Cannot update a component (`StateProvider`) while rendering a different component (`MainFeed`). To locate the bad setState() call inside `MainFeed`, follow the stack trace as described in https://reactjs.org/link/setstate-in-rende
+15.4.2022 3:57PM 'await' has no effect on the type of this expression.ts(80007)

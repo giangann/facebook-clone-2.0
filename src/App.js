@@ -6,7 +6,6 @@ import Content from "./Content";
 import Login from "./Login";
 import { useStateValue } from "./StateProvider";
 import Widget from "./Widget";
-import { useEffect } from "react";
 
 function App() {
 

@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MainFeedItems.css";
 import ReplyAllRoundedIcon from "@mui/icons-material/ReplyAllRounded";
 import MarkChatUnreadOutlinedIcon from "@mui/icons-material/MarkChatUnreadOutlined";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import TagFacesRoundedIcon from "@mui/icons-material/TagFacesRounded";
 import RecommendRoundedIcon from "@mui/icons-material/RecommendRounded";
-import ProcessImage from "./ProcessImage";
 
 function MainFeedItems({
   feedImage,
@@ -14,10 +13,6 @@ function MainFeedItems({
   userStatus,
   feedItemsStatistic,
 }) {
-  
-  const handleDisplayImage = (src) =>{
-    URL.revokeObjectURL(src)
-  }
 
   return (
     <div className="mainFeed__items">
@@ -34,7 +29,7 @@ function MainFeedItems({
       </div>
       <div className="feedItems__mid">
         <div className="feedItems__userStatus">{userStatus}</div>
-        <img src = {process.env.PUBLIC_URL + `${feedImage}`} onLoad={handleDisplayImage(process.env.PUBLIC_URL + `${feedImage}`)} />
+        <img src = {feedImage} alt="This is some thing to describe" />
       </div>
       <div className="feedItems__bottom">
         <div>
