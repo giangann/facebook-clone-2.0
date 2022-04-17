@@ -15,7 +15,8 @@ function Widget() {
         <div className="widget__title">
           <p>Sponsored</p>
         </div>
-        <div className="widget__item--sponsored">
+        <d
+        iv className="widget__item--sponsored">
           <div className="widget__image">
             <img
               src="https://scontent.fhan4-1.fna.fbcdn.net/v/t45.1600-4/264074796_23849346531550167_1114851032059413095_n.png?stp=cp0_dst-jpg_p296x100_q90_spS444&_nc_cat=105&ccb=1-5&_nc_sid=67cdda&_nc_ohc=0uZk9MloGI8AX9h5Eob&_nc_ht=scontent.fhan4-1.fna&oh=00_AT_HADcdMS91x_srGX0Cv3DC02WnBuJIpa-CUKtvUoLx_g&oe=625F2982"
@@ -26,7 +27,7 @@ function Widget() {
             <p>Find IT / Web engineering jobs in Japan!</p>
             <p>global.findy-code.io</p>
           </div>
-        </div>
+        </d>
         <div className="widget__item--sponsored">
           <div className="widget__image">
             <img
