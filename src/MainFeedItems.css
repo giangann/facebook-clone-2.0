@@ -91,6 +91,12 @@
   display: flex;
   border-bottom: solid 1px #ced0d4;
   padding-bottom: 4px;
+  align-items: center;
+}
+
+/* color of statistic: */
+.feedItems__bottom span {
+  color: #65676b;
 }
 
 .feedItems__numOfInteract {
@@ -119,4 +125,9 @@
   cursor: pointer;
   background-color: #f3f2f3;
   border-radius: 5px;
+}
+
+/* css for Like button */
+.feedItems__action--liked{
+  color: #056be1;
 }
