@@ -1,6 +1,7 @@
 import React from "react";
 import "./MessageSender.css";
 import "./SidebarRow.css";
+import db from "./firebaseConfig";
 
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import CollectionsBookmarkSharpIcon from "@mui/icons-material/CollectionsBookmarkSharp";
@@ -10,11 +11,12 @@ import { useStateValue } from "./StateProvider";
 
 function MessageSender() {
   const handleCreatePost = () => {
-    document.getElementsByClassName("feeds__createPost--wrapper")[0].style.display = 'block';
+    document.getElementsByClassName(
+      "feeds__createPost--wrapper"
+    )[0].style.display = "block";
   };
 
-  const [{user}, setUser] = useStateValue()
-
+  const [{ user }, setUser] = useStateValue();
 
   return (
     <div>
@@ -28,7 +30,7 @@ function MessageSender() {
               onClick={() => handleCreatePost()}
               type="text"
               placeholder={`What's on your mind, ${user.displayName}?`}
-              />
+            />
           </div>
         </div>
         <div className="sender__bottom">
@@ -46,7 +48,6 @@ function MessageSender() {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }

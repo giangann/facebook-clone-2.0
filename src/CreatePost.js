@@ -20,8 +20,6 @@ function CreatePost({ feedItemsData }) {
   const [preImgURL, setPreImgURL] = useState(""); //user preview
   const [putImgURL, setPutImgURL] = useState(null);
 
-  console.log(putImgURL);
-
   // save user's caption and Loading process
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -94,6 +92,7 @@ function CreatePost({ feedItemsData }) {
           numOfInteract: 0,
           numOfComment: 0,
           numOfShare: 0,
+          listUserInteract:[]
         },
       })
       .then(() => {

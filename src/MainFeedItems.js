@@ -6,6 +6,7 @@ import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import TagFacesRoundedIcon from "@mui/icons-material/TagFacesRounded";
 import RecommendRoundedIcon from "@mui/icons-material/RecommendRounded";
 import { useStateValue } from "./StateProvider";
+import db from "./firebaseConfig";
 
 function MainFeedItems({
   feedImage,
@@ -13,21 +14,23 @@ function MainFeedItems({
   userName,
   userStatus,
   feedItemsStatistic,
+  feedId,
 }) {
   const [{ user }, setUser] = useStateValue();
   console.log(user);
 
   const [postStatistic, setPostStatistic] = useState({
-    isLiked: false,
-    listUserInteract: [],
-    numOfInteract: 0,
+    isLiked: feedItemsStatistic.listUserInteract.includes(user.displayName),
+    listUserInteract: feedItemsStatistic.listUserInteract,
+    numOfInteract: feedItemsStatistic.listUserInteract.length,
   });
+
+  console.log(postStatistic.listUserInteract);
 
   // handle when user click like button
   // if user have liked it before: isLiked: false,
   // else isLiked: true, list.append(user.displayName),
   //  numOfInteract+1
-
   const handleInteract = () => {
     if (postStatistic.isLiked) {
       const tempPostStatistic = {
@@ -46,7 +49,24 @@ function MainFeedItems({
       };
       setPostStatistic(tempPostStatistic);
     }
+    console.log("update state of browser")
   };
+
+  // update statistic of current post to storage
+  const updateStorage = async () => {
+    // make ref to document (curr post)
+    const postRef = db.collection("feed").doc(feedId);
+    // create request to update
+    console.log(postStatistic.listUserInteract)
+    const res = await postRef.update({
+      feedItemsStatistic:{
+        ...feedItemsStatistic,
+        listUserInteract: postStatistic.listUserInteract
+      }
+    });
+  };
+
+  updateStorage()
 
   return (
     <div className="mainFeed__items">

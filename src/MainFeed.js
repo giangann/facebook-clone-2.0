@@ -29,7 +29,6 @@ function MainFeed() {
     setFeedItemsData(sortFeedList);
   }, []);
 
-  console.log("feedListLength: ", feedItemsData);
   return (
     <div>
       <CreatePost feedItemsData={feedItemsData} />
@@ -42,6 +41,7 @@ function MainFeed() {
           userName={component.data.userName}
           userStatus={component.data.userStatus}
           feedItemsStatistic={component.data.feedItemsStatistic}
+          feedId = {component.id}
         />
       ))}
     </div>
