@@ -33,10 +33,24 @@ p {
   flex-direction: column;
 }
 
+/* make all item have soft edge:  */
+.widget__item--sponsored,
+.widget__item {
+  border-radius: 5px;
+}
+
+/* all item: hover animation */
+.widget__item--sponsored:hover,
+.widget__item:hover {
+  cursor: pointer;
+  background-color: #ced0d4;
+}
+
 /* css for image of Sponsored area */
 .widget__sponsored,
 .widget__contact,
 .widget__groupConservations {
+  width: 100%;
   padding-bottom: 8px;
   border-bottom: solid 1px #ced0d4;
 }
@@ -57,7 +71,6 @@ p {
 }
 
 /* css for content of Sponsored area */
-
 .widget__item--sponsored .widget__content {
   width: 55%;
 }
@@ -72,6 +85,10 @@ p {
   font-size: 13px;
 }
 
+.widget__item--sponsored:hover {
+  background-color: #ced0d4;
+}
+
 /* css for Contact area */
 .widget__contact {
   padding-bottom: 8px;
@@ -84,7 +101,7 @@ p {
   padding: 10px;
 }
 
-.widget__item p{
+.widget__item p {
   opacity: 0.8;
   font-weight: 500;
 }
@@ -96,6 +113,7 @@ p {
   margin-right: 8px;
 }
 
-.widget__contact .widget__title,.widget__groupConservations .widget__title{
+.widget__contact .widget__title,
+.widget__groupConservations .widget__title {
   padding-top: 20px;
 }

@@ -35,6 +35,34 @@
   justify-content: space-around;
   align-items: center;
   flex-basis: 80%;
+  height: 100%;
+}
+
+.header__mid .header__options {
+  flex-basis: 18%;
+  height: 100%;
+}
+
+.header__mid a {
+  flex-basis: 20%;
+  height: 100%;
+}
+
+.header__mid a {
+  color: black;
+}
+.header__mid .header__options:hover,
+a:hover,
+a:active,
+a:focus {
+  color: #056be1;
+  border-bottom: solid 5px #056be1;
+  cursor: pointer;
+}
+
+.header__mid .header__options:active {
+  color: #056be1;
+  border-bottom: solid 5px #056be1;
 }
 
 .header__right {
@@ -44,18 +72,26 @@
 /* Css for header left */
 .header__left {
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
-.header__left .header__search {
+.header__search {
   background-color: #f0f2f5;
   padding: 10px;
   border-radius: 20px;
   width: 240px;
+  font-size: 15px !important;
 }
+.header__search div:first-child{
+  flex-basis: 85%;
+  display: flex;
 
+}
 .header__search input {
   border: none;
   background-color: #f0f2f5;
+  padding: 0;
+  height: 100%;
+  font-size: 16px;
 }
 
 .header__search input:focus-visible {
@@ -63,6 +99,7 @@
 }
 .header__left > img {
   height: 40px;
+  margin: 0px 8px 0px 18px;
 }
 
 /* Css for header right */
@@ -70,6 +107,7 @@
 
 .header__option {
   justify-content: space-around;
+  position: relative;
 }
 .header__icon {
   width: 20px !important;
@@ -80,7 +118,7 @@
   flex-basis: 20%;
 }
 
-.header__info img{
+.header__info img {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -91,6 +129,110 @@
   padding: 8px 10px;
   background-color: #f0f2f5;
   border-radius: 50%;
+}
+
+.header__option .header__options--selected{
+  margin-left: 10px;
+  padding: 8px 10px;
+  background-color: #e7f3ff;
+  border-radius: 50%;
+}
+.header__options--selected >:first-child{
+  color: blue;
+}
+.header__options--selected:hover{
+  cursor: pointer;
+  background-color: #0000ff0e;
+}
+
+.header__option .header__options:hover {
+  cursor: pointer;
+  background-color: #cfd1d5;
+}
+
+.header__option .header__options:focus,
+.header__options:active {
+  background-color: #e6f2fe;
+}
+
+/* Multi-level Menu for icon in headerRight */
+
+.menu__dropDown {
+  display: block;
+  position: absolute;
+  right: 0%;
+  top: 40px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 12px 28px #00000033;
+  width: 340px;
+  height: 90vh;
+}
+
+.header__options:hover .menu__dropDown {
+  display: block;
+}
+
+.dropDown__title {
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding: 12px 16px 4px;
+}
+
+.menu__dropDown .header__search {
+  display: flex;
+  margin: 8px 16px;
+  font-size: 15px;
+}
+.dropDown__content {
+  padding: 8px;
+  overflow: auto;
+}
+
+.dropDown__item {
+  display: flex;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.dropDown__item div:first-child {
+  margin-right: 16px;
+}
+
+.dropDown__item:hover {
+  background-color: #e4e6e9;
+}
+
+.dropDown__userAvatar img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.dropDown__userName {
+  font-size: larger;
+}
+
+.dropDown__userChat p {
+  font-weight: 300;
+  opacity: 0.5;
+  font-size: medium;
+}
+
+.dropDown__footer {
+  border-top: solid 1px #cfd1d5;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 9vh;
+}
+
+.footer__content p {
+  font-size: larger;
+  color: #216fdb;
 }
 
 /* Css for header middle */
@@ -126,7 +268,7 @@
     flex-direction: column;
     position: absolute;
     top: 15px;
-    left: 0;
+    right: 40px;
     height: fit-content;
     overflow: visible;
     box-sizing: border-box;

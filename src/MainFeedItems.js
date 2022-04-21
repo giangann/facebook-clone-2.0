@@ -63,7 +63,7 @@ function MainFeedItems({
         ...feedItemsStatistic,
         listUserInteract: postStatistic.listUserInteract
       }
-    });
+  });
   };
 
   updateStorage()
