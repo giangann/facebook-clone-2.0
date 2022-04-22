@@ -40,7 +40,7 @@ function Header({handleToggleSideBar}) {
     } else{
       sidebar.style.display = "none"
       content.style.display = "block"
-      Widget.style.display = "block"
+      Widget.style.display = "flex"
       body.style.justifyContent = "space-around"
 
     }

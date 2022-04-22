@@ -1,4 +1,5 @@
 import "./App.css";
+import "./Header.css"
 import HomeIcon from "@mui/icons-material/Home";
 import Header from "./Header";
 import Sidebar from "./Sidebar";

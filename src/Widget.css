@@ -4,17 +4,6 @@ p {
   margin: 0px;
 }
 
-/* full height and sticky, allow scroll inside widget content */
-.app__widget {
-  height: 88vh;
-  overflow: auto;
-  position: sticky;
-  top: 79px;
-  right: 0px;
-  display: flex;
-  justify-content: flex-end;
-}
-
 /* make widget have space */
 .widget {
   width: 85%;
