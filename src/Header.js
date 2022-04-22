@@ -15,7 +15,7 @@ import { useStateValue } from "./StateProvider";
 import "./App.css";
 import MultiLevelMenu from "./MultiLevelMenu";
 
-function Header() {
+function Header({handleToggleSideBar}) {
   const [{ user }, setUser] = useStateValue();
 
   // get first name in fullName of user to display beside userAvatar
@@ -24,15 +24,29 @@ function Header() {
     return firstName;
   }
 
-  // hide header__mid when decrease width of screen
   function handleResponsive() {
-    var x = document.getElementsByClassName("header__mid")[0];
-    if (x.className === "header__mid") {
-      x.className += " header__responsive";
-    } else {
-      x.className = "header__mid";
+    let sidebar = document.getElementsByClassName("app__sidebar")[0];
+    let content = document.getElementsByClassName("app__content")[0]
+    let Widget = document.getElementsByClassName("app__widget")[0]
+    let body = document.getElementsByClassName("app__body")[0]
+
+    console.log(sidebar)
+    if (sidebar.style.display === "none"){
+      sidebar.style.display = "block"
+      content.style.display = "none"
+      Widget.style.display = "none";
+      body.style.justifyContent = "flex-start"
+
+    } else{
+      sidebar.style.display = "none"
+      content.style.display = "block"
+      Widget.style.display = "block"
+      body.style.justifyContent = "space-around"
+
     }
   }
+
+  
   const chatList = [
     {
       userImage:
@@ -140,12 +154,6 @@ function Header() {
 
       <div className="header__mid">
         <div className="header__mid wrap">
-          <div
-            className="header__bar--responsive"
-            onClick={() => handleResponsive()}
-          >
-            <MenuSharpIcon fontSize="large" />
-          </div>
           <a href="#" className="header__options">
             <HomeIcon fontSize="large" />
           </a>
@@ -161,6 +169,13 @@ function Header() {
           <a href="#" className="header__options">
             <SubscriptionsOutlinedIcon fontSize="large" />
           </a>
+          <a
+            href="#"
+            className="header__bar--responsive header__options"
+            onClick={handleResponsive}
+          >
+            <MenuSharpIcon fontSize="large" />
+          </a>
         </div>
       </div>
 
@@ -170,7 +185,7 @@ function Header() {
           <h4>{getFirstName(user.displayName)}</h4>
         </div>
         <div className="header__option">
-          <MultiLevelMenu menu={headerRight} toggleDropDown = {toggleDropDown} />
+          <MultiLevelMenu menu={headerRight} toggleDropDown={toggleDropDown} />
         </div>
       </div>
     </div>

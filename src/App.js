@@ -6,10 +6,11 @@ import Content from "./Content";
 import Login from "./Login";
 import { useStateValue } from "./StateProvider";
 import Widget from "./Widget";
+import { useState } from "react";
 
 function App() {
+  const [{ user }, setUser] = useStateValue();
 
-  const [{user}, setUser] = useStateValue()
   return (
     <div>
       {!user ? (
@@ -23,6 +24,7 @@ function App() {
             <div className="app__sidebar">
               <Sidebar />
             </div>
+
             <div className="app__content">
               <Content />
             </div>

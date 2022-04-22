@@ -81,10 +81,9 @@ a:focus {
   width: 240px;
   font-size: 15px !important;
 }
-.header__search div:first-child{
+.header__search div:first-child {
   flex-basis: 85%;
   display: flex;
-
 }
 .header__search input {
   border: none;
@@ -131,16 +130,16 @@ a:focus {
   border-radius: 50%;
 }
 
-.header__option .header__options--selected{
+.header__option .header__options--selected {
   margin-left: 10px;
   padding: 8px 10px;
   background-color: #e7f3ff;
   border-radius: 50%;
 }
-.header__options--selected >:first-child{
+.header__options--selected > :first-child {
   color: blue;
 }
-.header__options--selected:hover{
+.header__options--selected:hover {
   cursor: pointer;
   background-color: #0000ff0e;
 }
@@ -240,6 +239,47 @@ a:focus {
   display: none;
 }
 
+/* CSS media query - Handle RESPONSIVE */
+
+@media only screen and (max-width: 1200px) {
+  /* hide input area in header__left */
+  .header__left .input-field {
+    display: none;
+  }
+  .header__search {
+    width: fit-content;
+    border-radius: 50%;
+  }
+
+  /* skip: when click "magnifying glass" icon, input field appear */
+
+  /* change last icon in header__mid */
+  .header__mid .header__options:nth-child(5) {
+    display: none;
+  }
+  .header__mid .header__bar--responsive {
+    display: flex;
+  }
+
+  /* make sidebar disappear (in default) */
+  .app__sidebar {
+    display: none;
+    /* sidebar when appear */
+    flex: 100%;
+  }
+  .app__body {
+    justify-content: space-around;
+    height: 100vh;
+
+    /* sidebar when appear */
+    justify-content: flex-start;
+  }
+
+  .sidebar__wrap {
+    width: 100% !important;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   /* hide options in middle */
   .header__mid .header__bar--responsive {
@@ -285,7 +325,6 @@ a:focus {
   }
 
   .header__mid.wrap {
-    /* width: inherit; */
     width: 95%;
   }
 
