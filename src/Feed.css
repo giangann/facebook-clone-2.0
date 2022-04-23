@@ -1,6 +1,7 @@
 .content__feeds{
 
     width: 500px;
+    max-width: 100%;
     height: fit-content;
     margin: auto;
 }

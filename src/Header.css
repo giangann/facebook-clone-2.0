@@ -280,5 +280,15 @@ a:focus {
   .header__left {
     flex-basis: fit-content;
   }
-  
+}
+@media only screen and (max-width: 768px) {
+  .header__bar--responsive{
+    margin-left: 8px;
+  }
+  .content__story{
+    overflow-x: scroll;
+  }
+  .story__itemWrap{
+    width: 30vw !important;
+  }
 }

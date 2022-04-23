@@ -24,7 +24,6 @@ function MainFeedItems({
     numOfInteract: feedItemsStatistic.listUserInteract.length,
   });
 
-
   // handle when user click like button
   // if user have liked it before: isLiked: false,
   // else isLiked: true, list.append(user.displayName),
@@ -55,14 +54,14 @@ function MainFeedItems({
     const postRef = db.collection("feed").doc(feedId);
     // create request to update
     const res = await postRef.update({
-      feedItemsStatistic:{
+      feedItemsStatistic: {
         ...feedItemsStatistic,
-        listUserInteract: postStatistic.listUserInteract
-      }
-  });
+        listUserInteract: postStatistic.listUserInteract,
+      },
+    });
   };
 
-  updateStorage()
+  updateStorage();
 
   return (
     <div className="mainFeed__items">
@@ -83,7 +82,7 @@ function MainFeedItems({
       </div>
       <div className="feedItems__bottom">
         <div>
-          <div className="feedItems__interact">
+          <div className="feedItems__interact" style={{ display: "flex" }}>
             <RecommendRoundedIcon />
             <TagFacesRoundedIcon
               style={{ boxSizing: " border-box", marginLeft: "-8px" }}

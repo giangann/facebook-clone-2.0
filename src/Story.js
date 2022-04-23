@@ -40,15 +40,17 @@ function Story() {
   const storyItemData = merge(storyImage, userAvatar, userName);
 
   return (
-    <div className="content__story">
-      {storyItemData.map((component, index) => (
-        <StoryItem
-          key={index}
-          storyImage={component.storyImage}
-          userAvatar={component.userAvatar}
-          userName={component.userName}
-        />
-      ))}
+    <div className="content__story--wrap">
+      <div className="content__story">
+        {storyItemData.map((component, index) => (
+          <StoryItem
+            key={index}
+            storyImage={component.storyImage}
+            userAvatar={component.userAvatar}
+            userName={component.userName}
+          />
+        ))}
+      </div>
     </div>
   );
 }

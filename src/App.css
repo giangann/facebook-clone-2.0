@@ -56,6 +56,8 @@
 
 .app__content {
   flex-basis: 50%;
+  max-width: 100%;
+
 }
 .app__widget {
   flex-basis: 25%;
