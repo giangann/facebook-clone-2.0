@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import "./Header.css";
@@ -14,9 +14,12 @@ import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 import { useStateValue } from "./StateProvider";
 import "./App.css";
 import MultiLevelMenu from "./MultiLevelMenu";
+import { storage } from "./firebaseConfig";
 
-function Header({handleToggleSideBar}) {
+function Header({ handleToggleSideBar }) {
   const [{ user }, setUser] = useStateValue();
+
+  
 
   // get first name in fullName of user to display beside userAvatar
   function getFirstName(fullName) {
@@ -26,65 +29,55 @@ function Header({handleToggleSideBar}) {
 
   function handleResponsive() {
     let sidebar = document.getElementsByClassName("app__sidebar")[0];
-    let content = document.getElementsByClassName("app__content")[0]
-    let Widget = document.getElementsByClassName("app__widget")[0]
-    let body = document.getElementsByClassName("app__body")[0]
+    let content = document.getElementsByClassName("app__content")[0];
+    let Widget = document.getElementsByClassName("app__widget")[0];
+    let body = document.getElementsByClassName("app__body")[0];
 
-    console.log(sidebar)
-    if (sidebar.style.display === "none"){
-      sidebar.style.display = "block"
-      content.style.display = "none"
+    if (sidebar.style.display === "none") {
+      sidebar.style.display = "block";
+      content.style.display = "none";
       Widget.style.display = "none";
-      body.style.justifyContent = "flex-start"
-
-    } else{
-      sidebar.style.display = "none"
-      content.style.display = "block"
-      Widget.style.display = "flex"
-      body.style.justifyContent = "space-around"
-
+      body.style.justifyContent = "flex-start";
+    } else {
+      sidebar.style.display = "none";
+      content.style.display = "block";
+      Widget.style.display = "flex";
+      body.style.justifyContent = "space-around";
     }
   }
 
-  
-  const chatList = [
+  const [chatList, setChatList] = useState([
     {
-      userImage:
-        "https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-1/277536821_1197823971023935_880481891021830613_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=ghFSjuRPRQUAX9Tfd2s&_nc_ht=scontent.fhan3-3.fna&oh=00_AT8Lw01ObnREkvuNLJpxNENSgm76k9HbY6RWA7xbl5Qxog&oe=626012C2",
+      userImage: "",
       userName: "Kevin De Bruyne",
       userChat: "Lorem ipsum dolor sit amet ",
     },
     {
-      userImage:
-        "https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-1/277536821_1197823971023935_880481891021830613_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=ghFSjuRPRQUAX9Tfd2s&_nc_ht=scontent.fhan3-3.fna&oh=00_AT8Lw01ObnREkvuNLJpxNENSgm76k9HbY6RWA7xbl5Qxog&oe=626012C2",
+      userImage: "",
       userName: "Peter Parker",
       userChat: "Lorem ipsum dolor sit amet ",
     },
     {
-      userImage:
-        "https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-1/277536821_1197823971023935_880481891021830613_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=ghFSjuRPRQUAX9Tfd2s&_nc_ht=scontent.fhan3-3.fna&oh=00_AT8Lw01ObnREkvuNLJpxNENSgm76k9HbY6RWA7xbl5Qxog&oe=626012C2",
+      userImage: "",
       userName: "Ngọc Ngọc",
       userChat: "Lorem ipsum dolor sit amet ",
     },
     {
-      userImage:
-        "https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-1/277536821_1197823971023935_880481891021830613_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=ghFSjuRPRQUAX9Tfd2s&_nc_ht=scontent.fhan3-3.fna&oh=00_AT8Lw01ObnREkvuNLJpxNENSgm76k9HbY6RWA7xbl5Qxog&oe=626012C2",
+      userImage: "",
       userName: "Rumelo Lukaku",
       userChat: "Lorem ipsum dolor sit amet ",
     },
     {
-      userImage:
-        "https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-1/277536821_1197823971023935_880481891021830613_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=ghFSjuRPRQUAX9Tfd2s&_nc_ht=scontent.fhan3-3.fna&oh=00_AT8Lw01ObnREkvuNLJpxNENSgm76k9HbY6RWA7xbl5Qxog&oe=626012C2",
+      userImage: "",
       userName: "Herry Kane",
       userChat: "Lorem ipsum dolor sit amet ",
     },
     {
-      userImage:
-        "https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-1/277536821_1197823971023935_880481891021830613_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=ghFSjuRPRQUAX9Tfd2s&_nc_ht=scontent.fhan3-3.fna&oh=00_AT8Lw01ObnREkvuNLJpxNENSgm76k9HbY6RWA7xbl5Qxog&oe=626012C2",
+      userImage: "",
       userName: "Kevin De Bruyne",
       userChat: "Lorem ipsum dolor sit amet ",
     },
-  ];
+  ]);
 
   // multi-level menu dropdown
   const [headerRight, setHeaderRight] = useState([
@@ -137,6 +130,7 @@ function Header({handleToggleSideBar}) {
     setHeaderRight(tempValue);
   };
 
+
   return (
     <div className="header">
       <div className="header__left">
@@ -185,7 +179,7 @@ function Header({handleToggleSideBar}) {
           <h4>{getFirstName(user.displayName)}</h4>
         </div>
         <div className="header__option">
-          <MultiLevelMenu menu={headerRight} toggleDropDown={toggleDropDown} />
+          <MultiLevelMenu  menu={headerRight} toggleDropDown={toggleDropDown} />
         </div>
       </div>
     </div>

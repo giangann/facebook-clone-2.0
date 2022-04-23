@@ -311,4 +311,7 @@ a:focus {
     margin-left: 5px;
     padding: 4px 5px
   }
+  .menu__dropDown{
+    max-width: calc(100vw - 20px);
+  }
 }

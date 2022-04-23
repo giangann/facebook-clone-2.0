@@ -136,7 +136,8 @@ TextArea:focus {
   .feeds__createPost {
     max-width: calc(100% - 20px)
   }
-  feeds__createPost--outer{
-    padding: 0px 10px;
+  
+  .feeds__createPost--wrapper{
+    z-index: 30;
   }
 }

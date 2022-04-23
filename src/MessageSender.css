@@ -68,7 +68,7 @@
 }
 
 @media only screen and (max-width: 425px) {
-  span.sidebar__title{
+  .sender__bottom .sidebar__title{
     display: none;
   }
 }
