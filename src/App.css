@@ -57,7 +57,6 @@
 .app__content {
   flex-basis: 50%;
   max-width: 100%;
-
 }
 .app__widget {
   flex-basis: 25%;
@@ -93,10 +92,10 @@
     display: none;
     flex: 100%;
   }
-  .app__body{
+  .app__body {
     justify-content: space-around;
   }
-  
+
   /* change scale of other part */
   .app__widget {
     flex-basis: 30%;
@@ -115,6 +114,15 @@
   .app__body {
     justify-content: space-around;
     height: fit-content;
-
   }
-} ;
+}
+@media only screen and (max-width: 425px) {
+  .app__body{
+    /* padding-left: 8px;
+    padding-right: 8px; */
+  }
+  body{
+    padding:10px;
+    background-color: #f0f2f5;
+  }
+}
