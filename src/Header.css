@@ -285,9 +285,7 @@ a:focus {
   .header__bar--responsive{
     margin-left: 8px;
   }
-  .content__story{
-    overflow-x: scroll;
-  }
+  
   .story__itemWrap{
     width: 30vw !important;
   }

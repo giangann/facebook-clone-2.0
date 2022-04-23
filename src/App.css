@@ -93,7 +93,10 @@
     display: none;
     flex: 100%;
   }
-
+  .app__body{
+    justify-content: space-around;
+  }
+  
   /* change scale of other part */
   .app__widget {
     flex-basis: 30%;
@@ -113,7 +116,5 @@
     justify-content: space-around;
     height: fit-content;
 
-    /* sidebar when appear */
-    justify-content: flex-start;
   }
 } ;
