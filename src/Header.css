@@ -246,7 +246,7 @@ a:focus {
   .header__left .input-field {
     display: none;
   }
-  .header__search {
+  .header__left .header__search {
     width: fit-content;
     border-radius: 50%;
   }
@@ -288,5 +288,27 @@ a:focus {
   
   .story__itemWrap{
     width: 30vw !important;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .header{
+    padding-right: 10px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .header__left >*{
+    width: 30px !important;
+    height: 30px;
+    padding: 2px;
+  }
+  .header__left >img{
+    width: 30px;
+    height: 30px;
+  }
+  .header__right .header__options{
+    margin-left: 5px;
+    padding: 4px 5px
   }
 }

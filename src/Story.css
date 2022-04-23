@@ -20,4 +20,7 @@
     .content__story{
         width: fit-content;
     }
+    .content__story--wrap{
+        width: 100%;
+    }
   }

@@ -117,12 +117,14 @@
   }
 }
 @media only screen and (max-width: 425px) {
-  .app__body{
-    /* padding-left: 8px;
-    padding-right: 8px; */
-  }
   body{
     padding:10px;
     background-color: #f0f2f5;
+  }
+  .app__header{
+    box-sizing: border-box;
+    margin-left: -8px;
+    margin-right: -8px;
+    width: 100vw;
   }
 }

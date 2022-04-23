@@ -96,7 +96,7 @@ TextArea:focus {
   overflow: auto;
   height: 200px;
 }
-.createPost__image{
+.createPost__image {
   /* padding: 10px; */
   box-sizing: border-box;
 }
@@ -109,7 +109,7 @@ TextArea:focus {
   margin-bottom: 10px;
 }
 
-.createPost__addToPost strong{
+.createPost__addToPost strong {
   font-size: 20px;
 }
 
@@ -130,4 +130,13 @@ TextArea:focus {
 #image {
   width: 100%;
   height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .feeds__createPost {
+    max-width: calc(100% - 20px)
+  }
+  feeds__createPost--outer{
+    padding: 0px 10px;
+  }
 }
