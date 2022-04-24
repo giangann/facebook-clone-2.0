@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CreatePost from "./CreatePost";
-import db from "./firebaseConfig";
+import db from "../Services/Firebase/firebaseConfig";
 import MainFeedItems from "./MainFeedItems";
 import _ from "lodash";
 

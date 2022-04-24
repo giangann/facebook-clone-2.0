@@ -1,13 +1,12 @@
 import React from "react";
 import "./MessageSender.css";
-import "./SidebarRow.css";
-import db from "./firebaseConfig";
+import "../Sidebar/SidebarRow.css";
 
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone";
 import CollectionsBookmarkSharpIcon from "@mui/icons-material/CollectionsBookmarkSharp";
 import SentimentVerySatisfiedSharpIcon from "@mui/icons-material/SentimentVerySatisfiedSharp";
 import VideoCameraFrontSharpIcon from "@mui/icons-material/VideoCameraFrontSharp";
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "../Services/ContextAPI/StateProvider";
 
 function MessageSender() {
   const handleCreatePost = () => {

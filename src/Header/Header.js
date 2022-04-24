@@ -1,7 +1,13 @@
+import "./Header.css";
+import "../App.css";
+
+import { useStateValue } from "../Services/ContextAPI/StateProvider";
+import MultiLevelMenu from "./MultiLevelMenu";
+import db, { storage } from "../Services/Firebase/firebaseConfig";
+
 import React, { useEffect, useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
-import "./Header.css";
 import FlagIcon from "@mui/icons-material/Flag";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
@@ -11,15 +17,9 @@ import AppsIcon from "@mui/icons-material/Apps";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
-import { useStateValue } from "./StateProvider";
-import "./App.css";
-import MultiLevelMenu from "./MultiLevelMenu";
-import { storage } from "./firebaseConfig";
 
-function Header({ handleToggleSideBar }) {
+function Header() {
   const [{ user }, setUser] = useStateValue();
-
-  
 
   // get first name in fullName of user to display beside userAvatar
   function getFirstName(fullName) {
@@ -115,6 +115,7 @@ function Header({ handleToggleSideBar }) {
     },
   ]);
 
+  // conditional render when user click on 4 icon in headerRight
   const toggleDropDown = (id) => {
     const tempValue = headerRight.map((item, index) =>
       index === id
@@ -130,6 +131,53 @@ function Header({ handleToggleSideBar }) {
     setHeaderRight(tempValue);
   };
 
+  useEffect(() => {
+    var numOfUser = 6;
+
+    // FUNCTION: GET LINK DOWNLOAD FILE FROM STORAGE:
+    const getImageFromStorage = async (ref) => {
+      return await ref.getDownloadURL();
+    };
+
+    // FUNCTION: GET LIST OF LINK DOWNLOAD FLE FROM STORAGE:
+    var imgFileName = [];
+    for (let i = 1; i <= numOfUser; i++) {
+      imgFileName[i] = "user" + i + ".jpg";
+    }
+
+    // Create a storage reference from our storage service
+    var storageRef = storage.ref().child("/Widget_Image/Contacts");
+
+    // Create a reference to user_i.jpg
+    var userAvatarRef = [];
+    for (let i = 1; i <= numOfUser; i++) {
+      userAvatarRef[i] = storageRef.child(imgFileName[i]);
+    }
+
+    const getUserAvatarLink = async () => {
+      // get URL download link of Image have already post
+      var imgLink = [];
+      for (let i = 1; i <= numOfUser; i++) {
+        imgLink[i] = await getImageFromStorage(userAvatarRef[i]);
+      }
+      setHeaderRight(
+        headerRight.map((item, index) => ({
+          ...item,
+          headerRightSubmenu: {
+            title: item.headerRightSubmenu.title,
+            content: chatList.map((chatItem, chatIndex) => ({
+              ...chatItem,
+              userImage: imgLink[chatIndex + 1],
+            })),
+          },
+        }))
+      );
+    };
+
+    getUserAvatarLink();
+  }, []);
+
+  console.log(headerRight);
 
   return (
     <div className="header">
@@ -179,7 +227,7 @@ function Header({ handleToggleSideBar }) {
           <h4>{getFirstName(user.displayName)}</h4>
         </div>
         <div className="header__option">
-          <MultiLevelMenu  menu={headerRight} toggleDropDown={toggleDropDown} />
+          <MultiLevelMenu menu={headerRight} toggleDropDown={toggleDropDown} />
         </div>
       </div>
     </div>

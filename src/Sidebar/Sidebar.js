@@ -1,6 +1,9 @@
 import React from "react";
 import SidebarRow from "./SidebarRow";
 import './Sidebar.css'
+import { useStateValue } from "../Services/ContextAPI/StateProvider";
+import '../App.css'
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FlagIcon from "@mui/icons-material/Flag";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
@@ -10,8 +13,6 @@ import StoreSharpIcon from "@mui/icons-material/StoreSharp";
 import GroupWorkSharpIcon from "@mui/icons-material/GroupWorkSharp";
 import LiveTvSharpIcon from "@mui/icons-material/LiveTvSharp";
 import PeopleSharpIcon from "@mui/icons-material/PeopleSharp";
-import { useStateValue } from "./StateProvider";
-import './App.css'
 
 function Sidebar() {
   const [{user}, setUser] = useStateValue()

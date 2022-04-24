@@ -5,8 +5,8 @@ import MarkChatUnreadOutlinedIcon from "@mui/icons-material/MarkChatUnreadOutlin
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import TagFacesRoundedIcon from "@mui/icons-material/TagFacesRounded";
 import RecommendRoundedIcon from "@mui/icons-material/RecommendRounded";
-import { useStateValue } from "./StateProvider";
-import db from "./firebaseConfig";
+import { useStateValue } from "../Services/ContextAPI/StateProvider";
+import db from "../Services/Firebase/firebaseConfig";
 
 function MainFeedItems({
   feedImage,

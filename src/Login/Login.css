@@ -2,7 +2,7 @@
   font-family: "Segoe UI VN";
   font-style: normal;
   font-weight: normal;
-  src: local("Segoe UI VN"), url("./fonts/SVN-Segoe UI.ttf") format("ttf");
+  src: local("Segoe UI VN"), url("../fonts/SVN-Segoe UI.ttf") format("ttf");
 }
 
 body {

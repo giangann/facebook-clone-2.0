@@ -3,8 +3,8 @@ import "./CreatePost.css";
 import "./MainFeedItems.css";
 import { Input } from "antd";
 import HighlightOffSharpIcon from "@mui/icons-material/HighlightOffSharp";
-import { useStateValue } from "./StateProvider";
-import db, { storage } from "./firebaseConfig";
+import { useStateValue } from "../Services/ContextAPI/StateProvider";
+import db, { storage } from "../Services/Firebase/firebaseConfig";
 import CircularProgress from "@mui/material/CircularProgress";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import MicExternalOnIcon from "@mui/icons-material/MicExternalOn";
@@ -20,7 +20,7 @@ function CreatePost({ feedItemsData }) {
   const [preImgURL, setPreImgURL] = useState(""); //user preview
   const [putImgURL, setPutImgURL] = useState(null);
 
-  // save user's caption and Loading process
+  // save user's capt ion and Loading process
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -66,17 +66,15 @@ function CreatePost({ feedItemsData }) {
 
     // Prepare to Put image
     // Create a storage reference from our storage service
-    var storageRef = storage.ref();
+    var storageRef = storage.ref().child("Feed_Image");
     // Create a reference to feeds1_avata_icon.jpg
     var feedImageRef = storageRef.child(imgFileName);
 
     // Put file to Firebase-storage, check the result
     const imgAdded = await addImageToStorage(feedImageRef, putImgURL);
-    console.log("Done!, result: ", imgAdded);
 
     // get URL download link of Image have already post
     const imgLink = await getImageFromStorage(feedImageRef);
-    console.log(imgLink);
 
     // console.log("2. prepare .add to Firestorage, check downloadImgURL again", downloadImgURL)
 
@@ -92,11 +90,10 @@ function CreatePost({ feedItemsData }) {
           numOfInteract: 0,
           numOfComment: 0,
           numOfShare: 0,
-          listUserInteract:[]
+          listUserInteract: [],
         },
       })
       .then(() => {
-        console.log("3. Done");
       })
       .catch((error) => {
         console.error(error);
