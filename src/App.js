@@ -13,24 +13,6 @@ import { storage } from "./Services/Firebase/firebaseConfig";
 function App() {
   const [{ user }, setUser] = useStateValue();
 
-  useEffect(() => {
-    const testPushImage = async () => {
-      function importAll(r) {
-        return r.keys().map(r);
-      }
-
-      const images = importAll(
-        require.context(
-          "../public/image/Feed_Image",
-          false,
-          /\.(png|jpe?g|svg)$/
-        )
-      );
-      console.log(images);
-    };
-    testPushImage();
-  }, []);
-
   return (
     <div>
       {!user ? (

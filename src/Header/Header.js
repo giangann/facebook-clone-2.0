@@ -1,9 +1,9 @@
 import "./Header.css";
 import "../App.css";
+import { headerRightSample } from "../SampleData/HeaderSampleObject";
 
 import { useStateValue } from "../Services/ContextAPI/StateProvider";
 import MultiLevelMenu from "./MultiLevelMenu";
-import db, { storage } from "../Services/Firebase/firebaseConfig";
 
 import React, { useEffect, useState } from "react";
 import HomeIcon from "@mui/icons-material/Home";
@@ -12,10 +12,6 @@ import FlagIcon from "@mui/icons-material/Flag";
 import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
-import MessageIcon from "@mui/icons-material/Message";
-import AppsIcon from "@mui/icons-material/Apps";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 
 function Header() {
@@ -46,74 +42,7 @@ function Header() {
     }
   }
 
-  const [chatList, setChatList] = useState([
-    {
-      userImage: "",
-      userName: "Kevin De Bruyne",
-      userChat: "Lorem ipsum dolor sit amet ",
-    },
-    {
-      userImage: "",
-      userName: "Peter Parker",
-      userChat: "Lorem ipsum dolor sit amet ",
-    },
-    {
-      userImage: "",
-      userName: "Ngọc Ngọc",
-      userChat: "Lorem ipsum dolor sit amet ",
-    },
-    {
-      userImage: "",
-      userName: "Rumelo Lukaku",
-      userChat: "Lorem ipsum dolor sit amet ",
-    },
-    {
-      userImage: "",
-      userName: "Herry Kane",
-      userChat: "Lorem ipsum dolor sit amet ",
-    },
-    {
-      userImage: "",
-      userName: "Kevin De Bruyne",
-      userChat: "Lorem ipsum dolor sit amet ",
-    },
-  ]);
-
-  // multi-level menu dropdown
-  const [headerRight, setHeaderRight] = useState([
-    {
-      headerRightIcon: <AppsIcon className="header__icon" />,
-      headerRightSubmenu: {
-        title: "Menu",
-        content: chatList,
-      },
-      isSelected: false,
-    },
-    {
-      headerRightIcon: <MessageIcon className="header__icon" />,
-      headerRightSubmenu: {
-        title: "Messenger",
-        content: chatList,
-      },
-      isSelected: false,
-    },
-    {
-      headerRightIcon: <NotificationsIcon className="header__icon" />,
-      headerRightSubmenu: {
-        title: "Notifications",
-        content: chatList,
-      },
-      isSelected: false,
-    },
-    {
-      headerRightIcon: <ExpandMoreIcon className="header__icon" />,
-      headerRightSubmenu: {
-        title: "Account",
-        content: chatList,
-      },
-      isSelected: false,
-    },
-  ]);
+  const [headerRight, setHeaderRight] = useState(headerRightSample);
 
   // conditional render when user click on 4 icon in headerRight
   const toggleDropDown = (id) => {
@@ -130,53 +59,6 @@ function Header() {
     );
     setHeaderRight(tempValue);
   };
-
-  useEffect(() => {
-    var numOfUser = 6;
-
-    // FUNCTION: GET LINK DOWNLOAD FILE FROM STORAGE:
-    const getImageFromStorage = async (ref) => {
-      return await ref.getDownloadURL();
-    };
-
-    // FUNCTION: GET LIST OF LINK DOWNLOAD FLE FROM STORAGE:
-    var imgFileName = [];
-    for (let i = 1; i <= numOfUser; i++) {
-      imgFileName[i] = "user" + i + ".jpg";
-    }
-
-    // Create a storage reference from our storage service
-    var storageRef = storage.ref().child("/Widget_Image/Contacts");
-
-    // Create a reference to user_i.jpg
-    var userAvatarRef = [];
-    for (let i = 1; i <= numOfUser; i++) {
-      userAvatarRef[i] = storageRef.child(imgFileName[i]);
-    }
-
-    const getUserAvatarLink = async () => {
-      // get URL download link of Image have already post
-      var imgLink = [];
-      for (let i = 1; i <= numOfUser; i++) {
-        imgLink[i] = await getImageFromStorage(userAvatarRef[i]);
-      }
-      setHeaderRight(
-        headerRight.map((item, index) => ({
-          ...item,
-          headerRightSubmenu: {
-            title: item.headerRightSubmenu.title,
-            content: chatList.map((chatItem, chatIndex) => ({
-              ...chatItem,
-              userImage: imgLink[chatIndex + 1],
-            })),
-          },
-        }))
-      );
-    };
-
-    getUserAvatarLink();
-  }, []);
-
 
   return (
     <div className="header">
