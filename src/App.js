@@ -1,5 +1,5 @@
 import "./App.css";
-import "./Header/Header.css"
+import "./Header/Header.css";
 import HomeIcon from "@mui/icons-material/Home";
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
@@ -7,10 +7,29 @@ import Content from "./Content/Content";
 import Login from "./Login/Login";
 import { useStateValue } from "./Services/ContextAPI/StateProvider";
 import Widget from "./Widget/Widget";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { storage } from "./Services/Firebase/firebaseConfig";
 
 function App() {
   const [{ user }, setUser] = useStateValue();
+
+  useEffect(() => {
+    const testPushImage = async () => {
+      function importAll(r) {
+        return r.keys().map(r);
+      }
+
+      const images = importAll(
+        require.context(
+          "../public/image/Feed_Image",
+          false,
+          /\.(png|jpe?g|svg)$/
+        )
+      );
+      console.log(images);
+    };
+    testPushImage();
+  }, []);
 
   return (
     <div>

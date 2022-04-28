@@ -177,7 +177,6 @@ function Header() {
     getUserAvatarLink();
   }, []);
 
-  console.log(headerRight);
 
   return (
     <div className="header">

@@ -48,6 +48,7 @@ function CreatePost({ feedItemsData }) {
   const loadImg = (event) => {
     setPreImgURL(URL.createObjectURL(event.target.files[0]));
     setPutImgURL(event.target.files[0]);
+    console.log(event.target.files)
   };
 
   // FUNCTION: PUT FILE TO STORAGE:
