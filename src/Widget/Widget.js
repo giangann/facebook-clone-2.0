@@ -49,7 +49,7 @@ function Widget() {
         </div>
         <div className="widget__item">
           <div className="widget__image">
-            <img src="https://scontent.fhan3-3.fna.fbcdn.net/v/t39.30808-1/277536821_1197823971023935_880481891021830613_n.jpg?stp=cp0_dst-jpg_p40x40&_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=ghFSjuRPRQUAX9Tfd2s&_nc_ht=scontent.fhan3-3.fna&oh=00_AT8Lw01ObnREkvuNLJpxNENSgm76k9HbY6RWA7xbl5Qxog&oe=626012C2" alt="" />
+            <img src="" alt="" />
           </div>
           <div className="widget__content">
             <p>Peter Parker</p>

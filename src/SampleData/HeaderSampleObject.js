@@ -20,11 +20,11 @@ function loadImageFromFolder() {
 const images = loadImageFromFolder();
 
 // add full URL for images
-images.map((img) => firebaseConfig.projectId + ".web.app" + img);
+// images.map((img) => firebaseConfig.projectId + ".web.app" + img);
 
 const chatList = [
   {
-    userImage: images[0],
+    userImage: images[1],
     userName: "Kevin De Bruyne",
     userChat: "Lorem ipsum dolor sit amet ",
   },

@@ -6,9 +6,6 @@ import { storage } from "../Services/Firebase/firebaseConfig";
 function DropDown({ dropdown }) {
   const [dropDownItem, setDropDownItem] = useState(dropdown);
 
-  
-
-
   return (
     <div className="menu__dropDown">
       <div className="dropDown__title">{dropdown.title}</div>

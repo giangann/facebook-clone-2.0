@@ -42,8 +42,10 @@ function Header() {
     }
   }
 
+  
   const [headerRight, setHeaderRight] = useState(headerRightSample);
 
+  console.log (headerRight)
   // conditional render when user click on 4 icon in headerRight
   const toggleDropDown = (id) => {
     const tempValue = headerRight.map((item, index) =>
