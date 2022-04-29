@@ -5,26 +5,30 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React, { useState } from "react";
 import { firebaseConfig } from "../Services/Firebase/firebaseConfig";
 
-function importAll(r) {
+// support function for access image from folder
+export function importAll(r) {
   return r.keys().map(r);
 }
 
 // return array of image address ()
-function loadImageFromFolder() {
-  let images = importAll(
-    require.context("../../public/image/Widget_Image/Contacts", false, /\.(png|jpe?g|svg)$/)
+function loadImageFromContactsFolder() {
+  return importAll(
+    require.context(
+      "../../public/image/Widget_Image/Contacts",
+      false,
+      /\.(png|jpe?g|svg)$/
+    )
   );
-  return images;
 }
 
-const images = loadImageFromFolder();
+const images = loadImageFromContactsFolder();
 
 // add full URL for images
 // images.map((img) => firebaseConfig.projectId + ".web.app" + img);
 
 const chatList = [
   {
-    userImage: images[1],
+    userImage: images[0],
     userName: "Kevin De Bruyne",
     userChat: "Lorem ipsum dolor sit amet ",
   },
