@@ -48,7 +48,7 @@ function CreatePost({ feedItemsData }) {
   const loadImg = (event) => {
     setPreImgURL(URL.createObjectURL(event.target.files[0]));
     setPutImgURL(event.target.files[0]);
-    console.log(event.target.files)
+    console.log(event.target.files);
   };
 
   // FUNCTION: PUT FILE TO STORAGE:
@@ -94,8 +94,7 @@ function CreatePost({ feedItemsData }) {
           listUserInteract: [],
         },
       })
-      .then(() => {
-      })
+      .then(() => {})
       .catch((error) => {
         console.error(error);
       });
@@ -132,16 +131,25 @@ function CreatePost({ feedItemsData }) {
           />
           <div className="createPost__addToPost">
             <p>
-              <strong>Add to post</strong>
+              <strong>Add to your post</strong>
             </p>
             <div className="createPost__icon">
-              <label for="file">
-                <AddPhotoAlternateIcon fontSize="medium" />
+              <label style={{ color: "#45bd62" }} for="file">
+                <AddPhotoAlternateIcon fontSize="large" />
               </label>
-              <GroupAddIcon fontSize="medium" />
-              <EmojiEmotionsIcon fontSize="medium" />
-              <AddLocationAltIcon fontSize="medium" />
-              <MicExternalOnIcon fontSize="medium" />
+              <GroupAddIcon style={{ color: "#1771e6" }} fontSize="large" />
+              <EmojiEmotionsIcon
+                style={{ color: "#f7b928" }}
+                fontSize="large"
+              />
+              <AddLocationAltIcon
+                style={{ color: "#f5533d" }}
+                fontSize="large"
+              />
+              <MicExternalOnIcon
+                style={{ color: "#f02849" }}
+                fontSize="large"
+              />
             </div>
           </div>
 

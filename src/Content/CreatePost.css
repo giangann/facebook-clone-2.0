@@ -17,12 +17,17 @@
 }
 
 .feeds__createPost {
-  padding: 1px 16px;
   position: fixed;
   width: 500px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.feeds__createPost >*{
+  margin-left:  16px ;
+  margin-right: 16px ;
+  box-sizing: border-box;
 }
 
 .feeds__createPost h3:last-child {
@@ -31,8 +36,13 @@
 }
 
 .feeds__createPost h3:not(:last-child) {
-  width: fit-content;
-  margin: 1em auto;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  margin:1em 0 1em 0;
+  padding-bottom: 16px;
+  border-bottom: solid 1px #e5e5e5;
+  box-sizing: border-box;
 }
 
 .createPost__closeBtn {
@@ -57,7 +67,7 @@
   background-color: #1a6ed8;
   border-radius: 10px;
   padding: 10px;
-  margin: 0.5em 0px;
+  margin: 0 16px 16px 16px;
 }
 
 .opacity {
@@ -85,6 +95,11 @@
 TextArea {
   border: none;
   font-size: x-large;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  box-sizing: border-box;
 }
 
 TextArea:focus {
@@ -102,23 +117,66 @@ TextArea:focus {
 }
 
 .createPost__addToPost {
+  padding: 8px;
   display: flex;
-  justify-content: space-around;
-  border: solid 1px black;
+  justify-content: space-between;
+  border: solid 1px #ced0d4;
   border-radius: 10px;
   margin-bottom: 10px;
 }
 
 .createPost__addToPost strong {
-  font-size: 20px;
+  font-size: 15px;
+  font-weight: 500 !important;
 }
 
-.createPost__icon {
+.createPost__addToPost p {
+  flex-basis: 35%;
   display: flex;
-  justify-content: space-around;
-  flex-basis: 50%;
   align-items: center;
 }
+
+.createPost__addToPost div.createPost__icon {
+  flex-basis: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+}
+
+div.createPost__icon > * {
+  /* flex-basis: 20%; */
+  padding: 5px;
+}
+
+.createPost__icon label {
+  display: flex;
+  justify-content: center;
+  /* Add animation, make user pay attention --SHAKE*/
+  animation: shake 0.5s;
+  animation-iteration-count: 3; /*more big number -> more time*/
+}
+
+/* animation for label */
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.createPost__icon label:hover {
+  border-radius: 50%;
+  background-color: #ced0d438;
+}
+
 .createPost__image label:hover {
   cursor: pointer;
 }
@@ -134,10 +192,10 @@ TextArea:focus {
 
 @media only screen and (max-width: 768px) {
   .feeds__createPost {
-    max-width: calc(100% - 20px)
+    max-width: calc(100% - 20px);
   }
-  
-  .feeds__createPost--wrapper{
+
+  .feeds__createPost--wrapper {
     z-index: 30;
   }
 }

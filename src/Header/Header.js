@@ -42,12 +42,14 @@ function Header() {
     }
   }
 
-  
   const [headerRight, setHeaderRight] = useState(headerRightSample);
 
-  console.log (headerRight)
+  console.log(headerRight);
   // conditional render when user click on 4 icon in headerRight
   const toggleDropDown = (id) => {
+    function toggleDelay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
     const tempValue = headerRight.map((item, index) =>
       index === id
         ? {
@@ -59,7 +61,9 @@ function Header() {
             isSelected: false,
           }
     );
-    setHeaderRight(tempValue);
+    toggleDelay(100).then(() => {
+      setHeaderRight(tempValue);
+    });
   };
 
   return (

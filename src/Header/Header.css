@@ -124,17 +124,21 @@ a:focus {
   border: solid 1px black;
 }
 .header__option .header__options {
+  display: flex;
+  align-items: center;
   margin-left: 10px;
-  padding: 8px 10px;
+  padding: 10px;
   background-color: #f0f2f5;
   border-radius: 50%;
 }
 
 .header__option .header__options--selected {
   margin-left: 10px;
-  padding: 8px 10px;
+  padding: 10px;
   background-color: #e7f3ff;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
 }
 .header__options--selected > :first-child {
   color: blue;
@@ -160,12 +164,41 @@ a:focus {
   display: block;
   position: absolute;
   right: 0%;
-  top: 40px;
+  top: 45px;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0 12px 28px #00000033;
+  box-shadow: 0px 7px 9px 5px #00000033;
   width: 340px;
   height: 90vh;
+}
+
+.menu__dropDown .dropDown__above {
+  overflow: hidden;
+  height: 90%;
+}
+
+/* custom scrollbar */
+.dropDown__above::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+.menu__dropDown .dropDown__above:hover {
+  overflow-y: scroll;
 }
 
 .header__options:hover .menu__dropDown {
@@ -182,10 +215,10 @@ a:focus {
   display: flex;
   margin: 8px 16px;
   font-size: 15px;
+  width: 288px;
 }
 .dropDown__content {
   padding: 8px;
-  overflow: auto;
 }
 
 .dropDown__item {
@@ -196,6 +229,16 @@ a:focus {
 
 .dropDown__item div:first-child {
   margin-right: 16px;
+}
+
+.dropDown__item div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropDown__userAvatar{
+  height: 56px;
 }
 
 .dropDown__item:hover {
@@ -282,41 +325,41 @@ a:focus {
   }
 }
 @media only screen and (max-width: 768px) {
-  .header__bar--responsive{
+  .header__bar--responsive {
     margin-left: 8px;
   }
-  
-  .story__itemWrap{
+
+  .story__itemWrap {
     width: 30vw !important;
   }
 }
 
 @media only screen and (max-width: 425px) {
-  .header{
+  .header {
     padding-right: 10px;
   }
 }
 
 @media only screen and (max-width: 375px) {
-  .header__left >*{
+  .header__left > * {
     width: 30px !important;
     height: 30px;
     padding: 2px;
   }
-  .header__left >img{
+  .header__left > img {
     width: 30px;
     height: 30px;
   }
-  .header__right .header__options{
+  .header__right .header__options {
     margin-left: 5px;
-    padding: 4px 5px
+    padding: 5px;
   }
 
   .header__option .header__options--selected {
     margin-left: 5px;
-    padding: 4px 5px;
+    padding: 5px;
   }
-  .menu__dropDown{
+  .menu__dropDown {
     max-width: calc(100vw - 20px);
   }
 }
