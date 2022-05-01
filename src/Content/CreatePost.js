@@ -87,7 +87,7 @@ function CreatePost({ feedItemsData }) {
         userName: user.displayName,
         userStatus: input,
         feedItemsStatistic: {
-          timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
+          timeStamp: firebase.firestore.Timestamp.now(),
           numOfInteract: 0,
           numOfComment: 0,
           numOfShare: 0,

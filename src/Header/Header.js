@@ -14,7 +14,7 @@ import SupervisedUserCircleIcon from "@mui/icons-material/SupervisedUserCircle";
 import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
 
-function Header() {
+function Header({handleResponsive}) {
   const [{ user }, setUser] = useStateValue();
 
   // get first name in fullName of user to display beside userAvatar
@@ -23,28 +23,8 @@ function Header() {
     return firstName;
   }
 
-  function handleResponsive() {
-    let sidebar = document.getElementsByClassName("app__sidebar")[0];
-    let content = document.getElementsByClassName("app__content")[0];
-    let Widget = document.getElementsByClassName("app__widget")[0];
-    let body = document.getElementsByClassName("app__body")[0];
-
-    if (sidebar.style.display === "none") {
-      sidebar.style.display = "block";
-      content.style.display = "none";
-      Widget.style.display = "none";
-      body.style.justifyContent = "flex-start";
-    } else {
-      sidebar.style.display = "none";
-      content.style.display = "block";
-      Widget.style.display = "flex";
-      body.style.justifyContent = "space-around";
-    }
-  }
-
   const [headerRight, setHeaderRight] = useState(headerRightSample);
 
-  console.log(headerRight);
   // conditional render when user click on 4 icon in headerRight
   const toggleDropDown = (id) => {
     function toggleDelay(ms) {
@@ -64,6 +44,14 @@ function Header() {
     toggleDelay(100).then(() => {
       setHeaderRight(tempValue);
     });
+  };
+
+  const resetDropDown = () => {
+    const tempValue = headerRight.map((item) => ({
+      ...item,
+      isSelected: false,
+    }));
+    setHeaderRight(tempValue);
   };
 
   return (
@@ -114,7 +102,11 @@ function Header() {
           <h4>{getFirstName(user.displayName)}</h4>
         </div>
         <div className="header__option">
-          <MultiLevelMenu menu={headerRight} toggleDropDown={toggleDropDown} />
+          <MultiLevelMenu
+            menu={headerRight}
+            toggleDropDown={toggleDropDown}
+            resetDropDown={resetDropDown}
+          />
         </div>
       </div>
     </div>

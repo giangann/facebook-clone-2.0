@@ -16,6 +16,8 @@ function MainFeedItems({
   feedItemsStatistic,
   feedId,
 }) {
+
+  console.log(feedItemsStatistic.timeStamp)
   const [{ user }, setUser] = useStateValue();
 
   const [postStatistic, setPostStatistic] = useState({

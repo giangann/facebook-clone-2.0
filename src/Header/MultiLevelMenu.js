@@ -2,7 +2,7 @@ import React from "react";
 import DropDown from "./DropDown";
 import "./Header.css";
 
-function MultiLevelMenu({ menu, toggleDropDown }) {
+function MultiLevelMenu({ menu, toggleDropDown, resetDropDown }) {
   return (
     <>
       {menu.map((item, index) => (
@@ -13,8 +13,17 @@ function MultiLevelMenu({ menu, toggleDropDown }) {
           onClick={() => toggleDropDown(index)}
         >
           {item.headerRightIcon}
+
           {item.isSelected ? (
-            <DropDown key={index} dropdown={item.headerRightSubmenu} />
+            <div id="headerRight__dropDown">
+              <DropDown
+                key={index}
+                dropdown={item.headerRightSubmenu}
+                index={index}
+                toggleDropDown={toggleDropDown}
+                resetDropDown={resetDropDown}
+              />
+            </div>
           ) : (
             ""
           )}

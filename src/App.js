@@ -12,6 +12,31 @@ import { storage } from "./Services/Firebase/firebaseConfig";
 
 function App() {
   const [{ user }, setUser] = useStateValue();
+  const [change, setChange] = useState(0);
+
+  const handleResponsive = () => {
+    let sidebar = document.getElementsByClassName("app__sidebar")[0];
+    let content = document.getElementsByClassName("app__content")[0];
+    let Widget = document.getElementsByClassName("app__widget")[0];
+    let body = document.getElementsByClassName("app__body")[0];
+
+    console.log(sidebar);
+
+    if (sidebar.style.display === "none") {
+      sidebar.style.display = "block";
+      content.style.display = "none";
+      Widget.style.display = "none";
+      body.style.justifyContent = "flex-start";
+    } else {
+      sidebar.style.display = "none";
+      content.style.display = "block";
+      Widget.style.display = "flex";
+      body.style.justifyContent = "space-around";
+    }
+
+    setChange(change + 1);
+    console.log(change)
+  };
 
   return (
     <div>
@@ -20,11 +45,11 @@ function App() {
       ) : (
         <>
           <div className="app__header">
-            <Header />
+            <Header  handleResponsive = {handleResponsive}/>
           </div>
           <div className="app__body">
             <div className="app__sidebar">
-              <Sidebar />
+              <Sidebar  />
             </div>
 
             <div className="app__content">

@@ -2,9 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import { storage } from "../Services/Firebase/firebaseConfig";
+import MultiLevelMenu from "./MultiLevelMenu";
 
-function DropDown({ dropdown }) {
+function DropDown({ index, dropdown, resetDropDown }) {
   const [dropDownItem, setDropDownItem] = useState(dropdown);
+
+  useEffect(() => {
+    var ignoreClickOnMeElement = document.getElementById(
+      "headerRight__dropDown"
+    );
+
+    document.addEventListener("click", function (event) {
+      var isClickInsideElement = ignoreClickOnMeElement.contains(event.target);
+      if (!isClickInsideElement) {
+        resetDropDown();
+      }
+    });
+  });
+  // close dropDown when click outside
 
   return (
     <div className="menu__dropDown">
